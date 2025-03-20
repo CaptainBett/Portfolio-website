@@ -1,109 +1,606 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Captain's Weather App</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <style>
-      body {
-        background: linear-gradient(to right, #2c3e50, #4ca1af);
-        color: white;
-        min-height: 100vh;
-      }
-      .card {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border-radius: 15px;
-      }
-      .form-control,
-      .btn {
-        border-radius: 30px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container py-5">
-      <h1 class="text-center mb-4">🌤️ Captain's Weather</h1>
+{% extends 'base.html' %}
+{% block content %}
 
-      <!-- Search Form -->
-      <div class="card bg-light text-dark mb-4">
-        <div class="card-body">
-          <h3 class="text-center mb-4">Search Weather</h3>
-          <form id="weather-form" method="POST" action="/">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="city" class="form-label">City Name</label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  class="form-control"
-                  placeholder="Enter city name"
-                  required
-                />
+<!-- Header Section (Home) -->
+<header id="home" class="pt-0 lg position-relative overflow-hidden bg-gradient-body">
+    <!-- Animated background elements -->
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+    </div>
+  
+    <div class="container position-relative">
+      <div class="header-content">
+        <div class="row v-center">
+          <div class="col-md-12 col-lg-7 text-left">
+            <h6 class="text-primary mb-15" data-aos="fade-down" data-aos-delay="20">
+              <i class="fas fa-code me-2"></i>Full Stack Developer
+            </h6>
+            <h1 class="title display-4 fw-bold mb-20 gradient-text" data-aos="fade-down">
+              Transforming Ideas Into 
+              <span class="text-primary typewrite" data-period="2000" 
+                data-type='["Digital Solutions", "Clean Code", "User Experiences"]'></span>
+            </h1>
+            <p class="lead mb-30 fs-18" data-aos="fade-right">
+              Hi, I'm <span class="fw-bold">Enock Bett</span> – A Nairobi-based software craftsman specializing in 
+              <span class="text-primary">scalable web applications</span> and 
+              <span class="text-primary">intuitive interfaces</span>. 
+              Passionate about solving real-world problems through elegant code.
+            </p>
+            <div class="d-flex flex-column flex-md-row gap-20" data-aos="fade-up">
+              <a href="#contact" class="btn btn-primary btn-hover-effect px-3 py-2 me-2 mb-2 mb-md-0">
+                <i class="fas fa-paper-plane me-2"></i>Let's Collaborate
+              </a>
+              <a href="#resume" class="btn btn-outline-info btn-hover-effect px-3 py-2">
+                <i class="fas fa-download me-2"></i>Download Resume
+              </a>
+            </div>
+            
+            <div class="tech-stack mt-40" data-aos="fade-up" data-aos-delay="200">
+              <span class="text-light-70">Tech I Work With:</span>
+              <div class="d-flex g-5 mt-2">
+                <i class="fab fa-react fa-2x"></i>
+                <i class="fab fa-python fa-2x"></i>
+                <i class="fab fa-js-square fa-2x"></i>
+                <i class="fab fa-node fa-2x"></i>
+                <i class="fab fa-aws fa-2x"></i>
               </div>
-              <div class="col-md-6 mb-3">
-                <label for="country" class="form-label">Country Code</label>
-                <input
-                  type="text"
-                  id="country"
-                  name="country"
-                  class="form-control"
-                  placeholder="Enter country code (e.g., US)"
-                  required
-                />
-              </div>
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary btn-lg px-5">
-                Search
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <!-- Weather Details -->
-      <div class="card bg-secondary">
-        <div class="card-body">
-          <h3 id="weather-title" class="text-center mb-3">Weather Details</h3>
-          <h5 class="text-center">{{weather.date}}</h5>
-          <p id="weather-description" class="text-center"></p>
-          <div class="row text-center">
-            <div class="col-md-6">
-              <h4>Temperature:</h4>
-              <p id="weather-temp">--{{weather.temp}} °C</p>
-            </div>
-            <div class="col-md-6">
-              <h4>Humidity:</h4>
-              <p id="weather-humidity">--{{weather.humidity}}%</p>
             </div>
           </div>
-          <div class="row text-center">
-            <div class="col-md-6">
-              <h4>Wind Speed:</h4>
-              <p id="weather-wind-speed">--{{weather.wind_speed}} m/s</p>
-            </div>
-            <div class="col-md-6">
-              <h4>Sunrise/Sunset:</h4>
-              <p id="weather-sunrise-sunset">
-                --{{weather.sunrise}} / {{weather.sunset}}--
-              </p>
+          <div class="col-md-12 col-lg-5 text-center" data-aos="fade-left">
+            <div class="hero-image-wrapper">
+              <img src="{{ url_for('static', filename='assets/images/Enock.png') }}" alt="Enock Bett" class="w-80 hero-image">
+              <div class="glowing-effect"></div>
+              <div class="code-snippet floating"></div>
+              <div class="code-snippet floating delay-1"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </header>
+  
+  <style>
+    .typewrite::after {
+      content: "|"; /* Cursor */
+      animation: blink 0.7s infinite;
+    }
+  
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const elements = document.getElementsByClassName('typewrite');
+  
+      for (let element of elements) {
+        const dataType = JSON.parse(element.getAttribute('data-type'));
+        const period = parseInt(element.getAttribute('data-period'), 10) || 2000;
+        let txt = '';
+        let loopNum = 0;
+        let isDeleting = false;
+  
+        function tick() {
+          let i = loopNum % dataType.length;
+          let fullTxt = dataType[i];
+  
+          if (isDeleting) {
+            txt = fullTxt.substring(0, txt.length - 1);
+          } else {
+            txt = fullTxt.substring(0, txt.length + 1);
+          }
+  
+          element.innerHTML = txt;
+  
+          let delta = isDeleting ? 50 : 100; // Typing & deleting speed
+  
+          if (!isDeleting && txt === fullTxt) {
+            delta = period; // Pause after typing
+            isDeleting = true;
+          } else if (isDeleting && txt === '') {
+            isDeleting = false;
+            loopNum++;
+            delta = 500; // Pause before typing new word
+          }
+  
+          setTimeout(tick, delta);
+        }
+  
+        tick();
+      }
+    });
+  </script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+<!-- About Section -->
+<section id="about" class="lg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 order-2 order-lg-1 bg-img box-bg-image jarallax" 
+           data-jarallax data-speed="0.8" 
+           style="background-image: url('{{ url_for('static', filename='assets/images/graduation.png') }}'); min-height: 340px;">
+      </div>
+      
+      <div class="col-lg-6 order-1 order-lg-2">
+        <div class="box-description p-x-30 pt-80 pb-100">
+          <h3 class="mb-30 fw-bold" data-aos="fade-right">
+            About <span class="text-primary">Me</span>
+          </h3>
+          <p class="mb-60 w-90" data-aos="fade-up">
+            I’m a software developer with a love for crafting robust applications and intuitive user experiences. My journey began during my university days where I honed my coding skills and discovered a passion for solving real-world problems through technology. I specialize in full-stack development and have experience working with a variety of programming languages and frameworks.
+          </p>
+          <p class="progress-title fs-12">HTML <span class="pull-right">95%</span></p>
+          <div class="progress">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" data-aos="slide-right" data-aos-delay="200"></div>
+          </div><!-- / progress -->
+
+          <p class="progress-title fs-12">CSS <span class="pull-right">100%</span></p>
+          <div class="progress">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-aos="slide-right" data-aos-delay="400"></div>
+          </div><!-- / progress -->
+
+          <p class="progress-title fs-12">JavaScript <span class="pull-right">90%</span></p>
+          <div class="progress">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" data-aos="slide-right" data-aos-delay="600"></div>
+          </div><!-- / progress -->
+        </div><!-- / box-description -->
+      </div><!-- / Text Column -->
+    </div><!-- / row -->
+  </div><!-- / container -->
+</section><!-- / about-me -->
+
+
+<section id="experience" class="lg bg-gradient-body">
+  <div class="container">
+      <div class="row">
+          <!-- Experience Overview and Metrics -->
+          <div class="col-lg-6">
+              <div class="box-description p-x-30 pt-80 pb-100">
+                  <h3 class="mb-30 fw-bold" data-aos="fade-down">My <span class="text-primary">Experience</span></h3>
+                  <p class="mb-80 w-90" data-aos="fade-in">
+                      Over the years, I've honed my skills in full-stack development, delivering innovative software solutions for a diverse range of clients. Whether it's a dynamic web application or a complex backend system, I thrive on transforming challenges into elegant, scalable code.
+                  </p>
+                  <div class="promo-box mt-80" data-aos="fade-up">
+                      <div class="row">
+                          <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6">
+                              <div class="promo-left p-y-15 mb-0">
+                                  <div class="promo-container-big">
+                                      <div class="promo-big promo-icon-bg circle raised-sm b-0 bg-gradient-primary mb-25">
+                                          <i class="fas fa-desktop promo-icon text-white"></i>
+                                      </div><!-- / promo-icon-bg -->
+                                      <h2 class="pt-10 mb-0">75</h2>
+                                      <p class="mb-0 fs-12 fw-bold text-primary">Web Applications Developed</p>
+                                  </div><!-- / promo-container-big -->
+                              </div><!-- / promo-box -->
+                          </div><!-- / column -->
+
+                           <div class="col-sm-12 col-md-6 col-lg-12 col-xl-6">
+                              <div class="promo-left p-y-15 mb-0">
+                                  <div class="promo-container-big">
+                                      <div class="promo-big promo-icon-bg circle raised-sm b-0 bg-gradient-primary mb-25">
+                                          <i class="fas fa-briefcase promo-icon text-white"></i>
+                                      </div><!-- / promo-icon-bg -->
+                                      <h2 class="pt-10 mb-0">120</h2>
+                                      <p class="mb-0 fs-12 fw-bold text-primary">Projects Completed</p>
+                                  </div><!-- / promo-container-big -->
+                              </div><!-- / promo-box -->
+                          </div><!-- / column -->
+                      </div><!-- / row -->
+                  </div><!-- / promo-box -->
+              </div><!-- / box-description -->
+          </div><!-- / column -->
+
+          <!-- Timeline: Education & Work -->
+          <div class="col-lg-6">
+              <ul class="timeline">
+                  <li class="timeline">
+                    <div class="timeline-badge"></div>
+                    <div class="timeline-panel" data-aos="fade-down">
+                      <div class="timeline-heading">
+                        <h5 class="timeline-title fw-bold text-primary">Associates Degree in Software engineering</h5>
+                        <p class="text-sm">Africode Academy</p>
+                        <p class="timeline-meta text-xs">
+                          <i class="fas fa-map-marker-alt fs-12 va-middle mr-5"></i> Nairobi, Kenya 
+                          <i class="fas fa-calendar fs-12 va-middle mr-5"></i> 2023 - 2024
+                        </p>
+                      </div>
+                      <div class="timeline-body">
+                        <p>
+                          My academic journey laid the foundation in algorithms, software engineering, and system design.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-inverted">
+                    <div class="timeline-badge"></div>
+                    <div class="timeline-panel" data-aos="fade-up">
+                      <div class="timeline-heading">
+                        <h5 class="timeline-title fw-bold text-primary">Software Developer</h5>
+                        <p class="text-sm">TabPay (Freelance & Contract Roles)</p>
+                        <p class="timeline-meta text-xs">
+                          <i class="fas fa-map-marker-alt fs-12 va-middle mr-5"></i> Nairobi, Kenya 
+                          <i class="fas fa-calendar fs-12 va-middle mr-5"></i> 2024 - Present
+                        </p>
+                      </div>
+                      <div class="timeline-body">
+                        <p>
+                          I work on full-stack development projects, designing and implementing solutions for web and mobile applications, while also contributing to open source initiatives.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+              </ul>
+          </div><!-- / column -->
+      </div><!-- / row -->
+  </div><!-- / container -->
+</section><!-- / experience -->
+
+
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="lg"> 
+  <div class="container">
+    <div class="container">
+        <h3 class="mb-30 fw-bold text-center">Portfolio</h3>
+      </div>
+    <div class="row">
+      <!-- Project 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="project" data-aos="fade-up">
+          <figure class="portfolio-item">
+            <div class="hovereffect">
+              <img class="img-responsive" src=" {{ url_for('static' ,filename='assets/images/project1.jpg') }}" alt="Full-Stack Web Application">
+              <div class="overlay">
+                <div class="hovereffect-title">
+                  <a href="#project1" class="project-title-wrapper">
+                    <h5 class="project-title fw-light">Full-Stack Web Application</h5>
+                  </a>
+                  <div class="hover-icons">
+                    <a href="#project1"><i class="bi bi-eye"></i></a>
+                    <a href="{{ url_for('static' ,filename='assets/images/project1.jpg') }}" class="project-lightbox"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="project" data-aos="fade-up" data-aos-delay="100">
+          <figure class="portfolio-item">
+            <div class="hovereffect">
+              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project2.jpg') }}" alt="Mobile Application">
+              <div class="overlay">
+                <div class="hovereffect-title">
+                  <a href="#project2" class="project-title-wrapper">
+                    <h5 class="project-title fw-light">Mobile Application</h5>
+                  </a>
+                  <div class="hover-icons">
+                    <a href="#project2"><i class="bi bi-eye"></i></a>
+                    <a href="{{ url_for('static' ,filename='assets/images/project2.jpg') }}" class="project-lightbox"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="project" data-aos="fade-up" data-aos-delay="200">
+          <figure class="portfolio-item">
+            <div class="hovereffect">
+              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project3.jpg') }}" alt="Open Source Contribution">
+              <div class="overlay">
+                <div class="hovereffect-title">
+                  <a href="#project3" class="project-title-wrapper">
+                    <h5 class="project-title fw-light">Open Source Contribution</h5>
+                  </a>
+                  <div class="hover-icons">
+                    <a href="#project3"><i class="bi bi-eye"></i></a>
+                    <a href="{{ url_for('static' ,filename='assets/images/project3.jpg') }}" class="project-lightbox"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+      <!-- Project 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="project" data-aos="fade-up" data-aos-delay="300">
+          <figure class="portfolio-item">
+            <div class="hovereffect">
+              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project4.jpg') }}" alt="Cloud-Based Solutions">
+              <div class="overlay">
+                <div class="hovereffect-title">
+                  <a href="#project4" class="project-title-wrapper">
+                    <h5 class="project-title fw-light">Cloud-Based Solutions</h5>
+                  </a>
+                  <div class="hover-icons">
+                    <a href="#project4"><i class="bi bi-eye"></i></a>
+                    <a href="{{ url_for('static' ,filename='assets/images/project4.jpg') }}" class="project-lightbox"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+      <!-- Project 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="project" data-aos="fade-up" data-aos-delay="400">
+          <figure class="portfolio-item">
+            <div class="hovereffect">
+              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project5.jpg') }}" alt="Data Analytics Platform">
+              <div class="overlay">
+                <div class="hovereffect-title">
+                  <a href="#project5" class="project-title-wrapper">
+                    <h5 class="project-title fw-light">Data Analytics Platform</h5>
+                  </a>
+                  <div class="hover-icons">
+                    <a href="#project5"><i class="bi bi-eye"></i></a>
+                    <a href="{{ url_for('static' ,filename='assets/images/project5.jpg') }}" class="project-lightbox"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+      <!-- Project 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="project" data-aos="fade-up" data-aos-delay="500">
+          <figure class="portfolio-item">
+            <div class="hovereffect">
+              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project6.jpg') }}" alt="E-commerce Application">
+              <div class="overlay">
+                <div class="hovereffect-title">
+                  <a href="#project6" class="project-title-wrapper">
+                    <h5 class="project-title fw-light">E-commerce Application</h5>
+                  </a>
+                  <div class="hover-icons">
+                    <a href="#project6"><i class="bi bi-eye"></i></a>
+                    <a href="{{ url_for('static' ,filename='assets/images/project6.jpg') }}" class="project-lightbox"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="lg bg-gradient-body">
+  <div class="container">
+    <h3 class="mb-30 fw-bold text-center text-primary">Testimonials</h3>
+  </div>
+  <div class="container">
+    <div class="row">
+      <!-- Testimonial 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card"  style="background-color: whitesmoke; border-radius: 20px;" data-aos="fade-up">
+          <div class="card-body text-center">
+            <img class="mb-30 circle raised-sm" style="max-width:50%" src="{{ url_for('static' ,filename='assets/images/mini1.jpg') }}" alt="Alice M.">
+            <h6 class="card-title mb-5">Alice M.</h6>
+            <p class="mb-0 fs-10 secondary-font fw-bold text-secondary-dark">Senior Software Engineer</p>
+            <p class="card-text mt-15 mb-15">
+              "Enock’s technical expertise and innovative approach have significantly elevated our development process."
+            </p>
+            <p class="ratings mb-0">
+              <i class="fas fa-star fs-12 va-middle"></i>
+              <i class="fas fa-star va-middle"></i>
+              <i class="fas fa-star fs-20 va-middle"></i>
+              <i class="fas fa-star va-middle"></i>
+              <i class="fas fa-star fs-12 va-middle"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card"  style="background-color: whitesmoke; border-radius: 20px;" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-body text-center">
+            <img class="mb-30 circle raised-sm" style="max-width:50%" src="{{ url_for('static' ,filename='assets/images/mini2.jpg') }}" alt="John K.">
+            <h6 class="card-title mb-5">John K.</h6>
+            <p class="mb-0 fs-10 secondary-font fw-bold text-secondary-dark">Project Manager</p>
+            <p class="card-text mt-15 mb-15">
+              "Working with Enock has been a pleasure—his commitment to clean, efficient code is second to none."
+            </p>
+            <p class="ratings mb-0">
+              <i class="fas fa-star fs-12 va-middle"></i>
+              <i class="fas fa-star va-middle"></i>
+              <i class="fas fa-star-half-alt fs-20 va-middle"></i>
+              <i class="fas fa-star va-middle"></i>
+              <i class="fas fa-star fs-12 va-middle"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card" style="background-color: whitesmoke; border-radius: 20px;" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-body text-center">
+            <img class="mb-30 circle raised-sm" style="max-width:50%" src="{{ url_for('static' ,filename='assets/images/mini3.jpg') }}" alt="Grace T.">
+            <h6 class="card-title mb-5">Grace T.</h6>
+            <p class="mb-0 fs-10 secondary-font fw-bold text-secondary-dark">UI/UX Designer</p>
+            <p class="card-text mt-15 mb-15">
+              "Enock’s problem-solving skills and collaborative mindset make him an indispensable part of any team."
+            </p>
+            <p class="ratings mb-0">
+              <i class="fas fa-star fs-12 va-middle"></i>
+              <i class="fas fa-star va-middle"></i>
+              <i class="fas fa-star fs-20 va-middle"></i>
+              <i class="fas fa-star va-middle"></i>
+              <i class="fas fa-star fs-12 va-middle"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card"  style="background-color: whitesmoke; border-radius: 20px;" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-body text-center">
+            <img class="mb-30 circle raised-sm" style="max-width:50%" src="{{ url_for('static' ,filename='assets/images/mini4.jpg') }}" alt="Michael B.">
+            <h6 class="card-title mb-5">Michael B.</h6>
+            <p class="mb-0 fs-10 secondary-font fw-bold text-secondary-dark">Technical Lead</p>
+            <p class="card-text mt-15 mb-15">
+              "His ability to quickly learn new technologies and adapt to challenges has been a tremendous asset."
+            </p>
+            <p class="ratings mb-0">
+              <i class="fas fa-star fs-12 va-middle"></i>
+              <i class="fas fa-star va-middle"></i>
+              <i class="fas fa-star fs-20 va-middle"></i>
+              <i class="fas fa-star va-middle"></i>
+              <i class="fas fa-star fs-12 va-middle"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section id="resume" class="lg bg-gradient-body text-center">
+  <div class="cta">
+    <div class="container">
+      <h2 class="section-title mb-30" data-aos="fade-down">
+        <span class="text-primary">Let's Collaborate</span>
+      </h2>
+      <p class="lead mb-30 w-40 m-x-auto" data-aos="fade-up" data-aos-delay="200">
+        Download my resume and explore how we can work together on exciting software projects.
+      </p>
+      <div class="btn-aos-wrapper d-inline-block" data-aos="fade-up" data-aos-delay="800">
+        <a href="{{ url_for('static' ,filename='docs/Enock_Bett_Resume.pdf') }}" class="btn btn-primary m-5" download>
+          <i class="bi bi-download mr-5"></i> <span>Download Resume</span>
+        </a>
+      </div>
+      <p class="mt-10 fs-12 text-secondary-dark mb-0" data-aos="fade-up" data-aos-delay="1200">
+        *Available in PDF format
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Contact Section -->
+<section class="lg bg-gradient-body" id="contact">
+  <div class="container relative">
+    <div class="row v-center">
+      <div class="col-lg-6 tablet-lg-top-45">
+        <div class="w-80 mb-40">
+          <h2 class="section-title mb-15" data-aos="fade-down">Get In Touch</h2>
+          <p class="lead mb-40" data-aos="fade-right" data-aos-delay="100">
+            I typically reply within 60 minutes. Feel free to drop me a message!
+          </p>
+          <p data-aos="fade-right" data-aos-delay="200">
+            Whether you have a project in mind or just want to chat about technology, I’d love to hear from you.
+          </p>
+        </div>
+        <div class="promo-box p-y-10 p-x-0 promo-left bg-transparent mb-15 no-shadow no-blur relative" data-aos="fade-up" data-aos-delay="300">
+          <div class="promo-container-big-sm">
+            <div class="promo-big icon-sm promo-icon-bg circle b-0 bg-primary raised-sm mb-10">
+              <i class="fas fa-envelope promo-icon text-white"></i>
+            </div>
+            <h6 class="box-title mb-2">Contact Info</h6>
+            <p class="box-description mb-1">
+              <span class="title-color">Phone:</span> 0798 354 820
+            </p>
+            <p class="box-description">
+              <span class="title-color">Email:</span> enockbett427@gmail.com
+            </p>
+          </div>
+        </div>                      
+      </div>
+      <div class="col-lg-6">
+        <div class="promo-box bg-glass p-40" data-aos="fade-up" data-aos-delay="400">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+              <div class="row">
+                  <div class="col-lg-12">
+                      {% for category, message in messages %}
+                          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                              {{ message }}
+                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                              </button>
+                          </div>
+                      {% endfor %}
+                  </div>
+              </div>
+          {% endif %}
+      {% endwith %}
+      <form class="needs-validation" id="form-validation3" method="POST" action="{{ url_for('index') }}" novalidate>
+        <input type="hidden" name="form_id" value="contact_form">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="contact-name3" name="inputName3" placeholder="&#xf2bd; Full Name" required style="font-family:'Font Awesome 5 Free', sans-serif; font-weight: 400">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="contact-email3" name="inputEmail3" placeholder="&#xf0e0; Email" required style="font-family:'Font Awesome 5 Free', sans-serif; font-weight: 400">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="contact-subject3" name="inputSubject3" placeholder="&#xf059; Subject" style="font-family:'Font Awesome 5 Free', sans-serif; font-weight: 400">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <select class="custom-select" id="contact-select" name="inputSelect3">
+                    <option value>&nbsp;</option>
+                    <option value="project">Project Inquiry</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="general">General Inquiry</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea id="contact-message3" class="form-control" name="inputMessage3" rows="5" placeholder="&#xf4ad; Message" required style="font-family:'Font Awesome 5 Free', sans-serif; font-weight: 400; min-height: 115px; max-height: 150px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Send Message</button> 
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .alert {
+      position: relative;
+      padding-right: 3rem; 
+  }
+
+  .alert .btn-close {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+</style>
+<script>
+  // Auto-scroll to contact section when there are flash messages
+  document.addEventListener('DOMContentLoaded', function() {
+      {% if get_flashed_messages() %}
+          const contactSection = document.getElementById('contact');
+          if (contactSection) {
+              contactSection.scrollIntoView({ behavior: 'smooth' });
+          }
+      {% endif %}
+  });
+  </script>
+{% endblock %}

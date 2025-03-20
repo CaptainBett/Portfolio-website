@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="captain" />
+
+  <title>Home - Portfolio</title>
+      <!-- Favicon -->
+      <link rel="icon" href="{{ url_for('static', filename='assets/images/CaptainBett-100x100.jpeg') }}" />
+  <!-- Bootstrap 5 Core CSS -->
+  <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animate.min.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/aos.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome-all.min.css') }}" type="text/css"/>
+
+</head>
+<div class="page-loader">
+  <div class="loader-spinner"></div>
+</div>
+<style>
+  .page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s;
+  }
+
+  .loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
+<script>
+  // Remove loader when page loads
+  window.addEventListener('load', () => {
+    const loader = document.querySelector('.page-loader');
+    loader.style.opacity = '0';
+    setTimeout(() => loader.remove(), 500);
+  });
+</script>
+<body class="bg-gradient-body">
+
+<!-- Navbar -->
+<div class="container relative">
+  <nav class="navbar navbar-expand-lg navbar- main-nav z-index-99999">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+          <img
+            src="{{ url_for('static', filename='assets/images/CaptainBett.jpeg') }}"
+            alt=""
+            class="rounded-circle align-middle ms-2"
+            style="height: 30px; width: 30px"
+          />
+          ENOCK BETT
+        </a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-12" aria-controls="navbar-12" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="icon-bar top-bar"></span>
+              <span class="icon-bar middle-bar"></span>
+              <span class="icon-bar bottom-bar"></span>
+              <span class="sr-only">Toggle navigation</span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar-12">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link me-5 active" href="{{ url_for('index') }}"><i class="fas fa-home"></i> <span>Home</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link me-5" href="#about"><i class="fas fa-user"></i> <span>About</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-5" href="#experience"><span><i class="fas fa-pencil-ruler mr-5"></i> Experience</span></a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link me-5" href="#portfolio"><i class="fas fa-th-large"></i> <span>Portfolio</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link me-5" href="#testimonials"><i class="fas fa-users"></i> <span>Testimonials</span></a>
+              </li>
+            
+          </ul>
+          <ul class="navbar-button p-0 m-0 ms-30">
+            <li class="nav-item">
+              <a class="btn btn-primary" href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a>
+            </li>
+          </ul>
+          </div>
+      </div>
+  </nav>
+</div>
+ 
+
+    {% block content %} {% endblock %}
+    <footer class="light bg-gradient-body-light">
+      <div class="container">
+          <div class="row v-center mobile-center">
+              <div class="col-xl-4 tablet-xl-text-center footer-left-area tablet-xl-top">
+                  <p class="fs-20">© 2025 by Captain</p>
+              </div>
+              <div class="col-xl-4 tablet-xl-text-center tablet-xl-top footer-center-area text-center">
+                  <p class="fs-20">
+                      <a href="{{ url_for('index') }}" class="text-link mr-15">Home</a>
+                      <a href="#about" class="text-link mr-15">About</a>
+                      <a href="#contact" class="text-link">Contact</a>
+                  </p>
+              </div>
+              <div class="col-xl-4 tablet-xl-text-center footer-right-area">
+                  <p class="footer-social ">
+                      <a href="https://linkedin.com/in/enockbett" class="btn btn-xs btn-icon btn-circle btn-linkedin mr-10 bg-gradient-dark"><i class="fab fa-linkedin fs-20"></i></a>
+                      <a href="https://x.com/Cpt_Bett" class="btn btn-xs btn-icon btn-circle btn-twitter mr-10 bg-gradient-dark"><i class="fab fa-twitter fs-20"></i></a>
+                      <a href="https://www.instagram.com/cpt.bett/" class="btn btn-xs btn-icon btn-circle btn-instagram bg-gradient-dark"><i class="fab fa-instagram fs-20"></i></a>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </footer>
+    <!-- Core JavaScript -->
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/theme.js') }}"></script>
+    <!-- / Core JavaScript -->
+
+    <!-- aos -->
+    <script src="{{ url_for('static', filename='assets/js/aos.js') }}"></script>
+    <script>
+        AOS.init({
+          duration: 1200,
+        })
+    </script>
+    <!-- / aos -->
+    </body>
+</html>
