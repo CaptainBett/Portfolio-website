@@ -663,38 +663,49 @@
       <form class="needs-validation" id="form-validation3" method="POST" action="{{ url_for('index') }}" novalidate>
         <input type="hidden" name="form_id" value="contact_form">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="contact-name3" name="inputName3" placeholder="&#xf2bd; Full Name" required style="font-family:'Font Awesome 5 Free', sans-serif; font-weight: 400">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="email" class="form-control" id="contact-email3" name="inputEmail3" placeholder="&#xf0e0; Email" required style="font-family:'Font Awesome 5 Free', sans-serif; font-weight: 400">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="contact-subject3" name="inputSubject3" placeholder="&#xf059; Subject" style="font-family:'Font Awesome 5 Free', sans-serif; font-weight: 400">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <select class="custom-select" id="contact-select" name="inputSelect3">
-                    <option value>&nbsp;</option>
-                    <option value="project">Project Inquiry</option>
-                    <option value="collaboration">Collaboration</option>
-                    <option value="general">General Inquiry</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+        <div class="row">
+          <div class="col-md-6">
             <div class="form-group">
-              <textarea id="contact-message3" class="form-control" name="inputMessage3" rows="5" placeholder="&#xf4ad; Message" required style="font-family:'Font Awesome 5 Free', sans-serif; font-weight: 400; min-height: 115px; max-height: 150px;"></textarea>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user fw-bold"></i></span>
+                </div>
+                <input type="text" class="form-control" id="contact-name3" name="inputName3" placeholder="Full Name" required>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-submit">Send Message</button> 
-          </form>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-envelope fw-bold"></i></span>
+                </div>
+                <input type="email" class="form-control" id="contact-email3" name="inputEmail3" placeholder="Email" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-info-circle fw-bold"></i></span>
+                </div>
+                <input type="text" class="form-control" id="contact-subject3" name="inputSubject3" placeholder="Subject" style="font-weight: 400">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-comment fw-bold"></i></span>
+            </div>
+            <textarea id="contact-message3" class="form-control" name="inputMessage3" rows="5" placeholder="Message" required style="font-weight: 400; min-height: 115px; max-height: 150px;"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+      </form>
+      
         </div>
       </div>
     </div>
