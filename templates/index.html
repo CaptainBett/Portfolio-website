@@ -243,29 +243,29 @@
   </div><!-- / container -->
 </section><!-- / experience -->
 
-
-
+  
 <!-- Portfolio Section -->
 <section id="portfolio" class="lg"> 
   <div class="container">
     <div class="container">
-        <h3 class="mb-30 fw-bold text-center">Portfolio</h3>
-      </div>
+      <h3 class="mb-30 fw-bold text-center">Portfolio</h3>
+    </div>
     <div class="row">
       <!-- Project 1 -->
       <div class="col-md-6 col-lg-4">
         <div class="project" data-aos="fade-up">
           <figure class="portfolio-item">
             <div class="hovereffect">
-              <img class="img-responsive" src=" {{ url_for('static' ,filename='assets/images/project1.jpg') }}" alt="Full-Stack Web Application">
+              <img class="img-responsive" src="{{ url_for('static', filename='assets/images/TabPay.png') }}" alt="Full-Stack Web Application">
               <div class="overlay">
-                <div class="hovereffect-title">
-                  <a href="#project1" class="project-title-wrapper">
-                    <h5 class="project-title fw-light">Full-Stack Web Application</h5>
+                <div class="hovereffect-title" st>
+                  <a href="#project1" class="project-title-wrapper" style="text-decoration: none;">
+                    <h5 class="project-title fw-bold">Financial Platform</h5>
                   </a>
                   <div class="hover-icons">
-                    <a href="#project1"><i class="bi bi-eye"></i></a>
-                    <a href="{{ url_for('static' ,filename='assets/images/project1.jpg') }}" class="project-lightbox"></a>
+                    <a href="#project1Modal" data-bs-toggle="modal" class="project-lightbox">
+                      <i class="bi bi-eye"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -273,20 +273,22 @@
           </figure>
         </div>
       </div>
+
       <!-- Project 2 -->
       <div class="col-md-6 col-lg-4">
         <div class="project" data-aos="fade-up" data-aos-delay="100">
           <figure class="portfolio-item">
             <div class="hovereffect">
-              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project2.jpg') }}" alt="Mobile Application">
+              <img class="img-responsive" src="{{ url_for('static', filename='assets/images/Weather_app.png') }}" alt="Weather App">
               <div class="overlay">
                 <div class="hovereffect-title">
-                  <a href="#project2" class="project-title-wrapper">
-                    <h5 class="project-title fw-light">Mobile Application</h5>
+                  <a href="#project2" class="project-title-wrapper" style="text-decoration: none;">
+                    <h5 class="project-title fw-bold">Weather App</h5>
                   </a>
                   <div class="hover-icons">
-                    <a href="#project2"><i class="bi bi-eye"></i></a>
-                    <a href="{{ url_for('static' ,filename='assets/images/project2.jpg') }}" class="project-lightbox"></a>
+                    <a href="#project2Modal" data-bs-toggle="modal" class="project-lightbox">
+                      <i class="bi bi-eye"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -294,83 +296,22 @@
           </figure>
         </div>
       </div>
+
       <!-- Project 3 -->
       <div class="col-md-6 col-lg-4">
         <div class="project" data-aos="fade-up" data-aos-delay="200">
           <figure class="portfolio-item">
             <div class="hovereffect">
-              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project3.jpg') }}" alt="Open Source Contribution">
+              <img class="img-responsive" src="{{ url_for('static', filename='assets/images/Taskmania.png') }}" alt="Todo Application">
               <div class="overlay">
                 <div class="hovereffect-title">
-                  <a href="#project3" class="project-title-wrapper">
-                    <h5 class="project-title fw-light">Open Source Contribution</h5>
+                  <a href="#project3" class="project-title-wrapper" style="text-decoration: none;">
+                    <h5 class="project-title fw-bold">Todo Application</h5>
                   </a>
                   <div class="hover-icons">
-                    <a href="#project3"><i class="bi bi-eye"></i></a>
-                    <a href="{{ url_for('static' ,filename='assets/images/project3.jpg') }}" class="project-lightbox"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </figure>
-        </div>
-      </div>
-      <!-- Project 4 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project" data-aos="fade-up" data-aos-delay="300">
-          <figure class="portfolio-item">
-            <div class="hovereffect">
-              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project4.jpg') }}" alt="Cloud-Based Solutions">
-              <div class="overlay">
-                <div class="hovereffect-title">
-                  <a href="#project4" class="project-title-wrapper">
-                    <h5 class="project-title fw-light">Cloud-Based Solutions</h5>
-                  </a>
-                  <div class="hover-icons">
-                    <a href="#project4"><i class="bi bi-eye"></i></a>
-                    <a href="{{ url_for('static' ,filename='assets/images/project4.jpg') }}" class="project-lightbox"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </figure>
-        </div>
-      </div>
-      <!-- Project 5 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project" data-aos="fade-up" data-aos-delay="400">
-          <figure class="portfolio-item">
-            <div class="hovereffect">
-              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project5.jpg') }}" alt="Data Analytics Platform">
-              <div class="overlay">
-                <div class="hovereffect-title">
-                  <a href="#project5" class="project-title-wrapper">
-                    <h5 class="project-title fw-light">Data Analytics Platform</h5>
-                  </a>
-                  <div class="hover-icons">
-                    <a href="#project5"><i class="bi bi-eye"></i></a>
-                    <a href="{{ url_for('static' ,filename='assets/images/project5.jpg') }}" class="project-lightbox"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </figure>
-        </div>
-      </div>
-      <!-- Project 6 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project" data-aos="fade-up" data-aos-delay="500">
-          <figure class="portfolio-item">
-            <div class="hovereffect">
-              <img class="img-responsive" src="{{ url_for('static' ,filename='assets/images/project6.jpg') }}" alt="E-commerce Application">
-              <div class="overlay">
-                <div class="hovereffect-title">
-                  <a href="#project6" class="project-title-wrapper">
-                    <h5 class="project-title fw-light">E-commerce Application</h5>
-                  </a>
-                  <div class="hover-icons">
-                    <a href="#project6"><i class="bi bi-eye"></i></a>
-                    <a href="{{ url_for('static' ,filename='assets/images/project6.jpg') }}" class="project-lightbox"></a>
+                    <a href="#project3Modal" data-bs-toggle="modal" class="project-lightbox">
+                      <i class="bi bi-eye"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -381,6 +322,181 @@
     </div>
   </div>
 </section>
+
+
+<!-- Project 1 Modal -->
+<div class="modal fade " id="project1Modal" tabindex="-1" aria-labelledby="project1ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-dark-90">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container mb-50">
+          <div class="row">
+            <div class="col-lg-7 tablet-lg-top-30">
+              <img src="{{ url_for('static', filename='assets/images/TabPay.png') }}" alt="" class="mb-30 rounded img-fluid" data-aos="fade-up" data-aos-delay="100">
+              <!-- <img src="{{ url_for('static', filename='assets/images/project-square5.jpg') }}" alt="" class="mb-30 rounded img-fluid" data-aos="fade-up" data-aos-delay="200">
+              <img src="{{ url_for('static', filename='assets/images/project6.jpg') }}" alt="" class="mb-30 rounded img-fluid" data-aos="fade-up" data-aos-delay="300">
+              <img src="{{ url_for('static', filename='assets/images/project-square4.jpg') }}" alt="" class="rounded img-fluid" data-aos="fade-up" data-aos-delay="400"> -->
+            </div>
+            <div class="col-lg-5">
+              <div class="promo-box project-info sticky-top top-30 p-4 bg-dark-80 ">
+                <h4 class=" mb-4">Financial Platform</h4>
+                <p class="mb-20 text-light-70">Design, Branding & Development</p>
+                <p class="text-dark-80 mb-4">Developed a comprehensive financial platform with real-time analytics and secure transaction processing. Integrated multiple financial APIs and implemented robust security measures.</p>
+
+                <div class="spacer spacer-line-fw border-light-20 my-4"></div>
+
+                <ul class="list-unstyled text-light-80">
+                  <li class="d-flex justify-content-between mb-3">
+                    <span class="fw-medium">Client:</span>
+                    <span class="">TabPay Africa</span>
+                  </li>
+                  <li class="d-flex justify-content-between mb-3">
+                    <span class="fw-medium">Stack:</span>
+                    <span class="">Python, Html, CSS, Bootstrap</span>
+                  </li>
+                  <li class="d-flex justify-content-between mb-3">
+                    <span class="fw-medium">Duration:</span>
+                    <span class="">6 Months</span>
+                  </li>
+                 
+                </ul>
+
+                <div class="spacer spacer-line-fw border-light-20 my-4"></div>
+
+                <div class="text-center">
+                  <a href="https://www.tabpay.africa" class="btn btn-primary px-4 py-3 rounded" target="_blank">
+                    <i class="fas fa-link mr-2"></i> <span>View Website</span>
+                  </a>
+                </div>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Project 2 Modal -->
+<div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-dark-90">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container mb-50">
+          <div class="row">
+            <div class="col-lg-7 tablet-lg-top-30">
+              <img src="{{ url_for('static', filename='assets/images/Weather_app.png') }}" alt="" class="mb-30 rounded img-fluid" data-aos="fade-up" data-aos-delay="100">
+              <!-- <img src="{{ url_for('static', filename='assets/images/project-square1.jpg') }}" alt="" class="mb-30 rounded img-fluid" data-aos="fade-up" data-aos-delay="200">
+              <img src="{{ url_for('static', filename='assets/images/project-square2.jpg') }}" alt="" class="mb-30 rounded img-fluid" data-aos="fade-up" data-aos-delay="300"> -->
+            </div>
+            <div class="col-lg-5">
+              <div class="promo-box project-info sticky-top top-30 p-4 bg-dark-80 rounded-4">
+                <h4 class=" mb-4">Weather Application</h4>
+                <p class="mb-20 ">Mobile Development & API Integration</p>
+                <p class="text-dark-80 mb-4">Created a cross-platform weather application with real-time updates and predictive forecasting. Integrated with major weather APIs and implemented location-based services.</p>
+
+                <div class="spacer spacer-line-fw border-light-20 my-4"></div>
+
+                <ul class="list-unstyled text-light-80">
+                  <li class="d-flex justify-content-between mb-3">
+                    <span class="fw-medium">Platform:</span>
+                    <span class="">iOS & Android</span>
+                  </li>
+                  <li class="d-flex justify-content-between mb-3">
+                    <span class="fw-medium">Stack:</span>
+                    <span class="">React Native, Node.js, OpenWeather API</span>
+                  </li>
+                  <li class="d-flex justify-content-between mb-3">
+                    <span class="fw-medium">Downloads:</span>
+                    <span class="">50,000+</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span class="fw-medium">Rating:</span>
+                    <span class="">4.8/5 Stars</span>
+                  </li>
+                </ul>
+
+                <div class="spacer spacer-line-fw border-light-20 my-4"></div>
+
+              <div class="text-center"> <a href="https://weather-app-o437.onrender.com" class="btn btn-primary px-4 py-3 rounded" target="_blank">
+                <i class="fas fa-link mr-5"></i> </i><span>View Website</span>
+              </a></div>
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Project 3 Modal -->
+<div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-dark-90">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container mb-50">
+          <div class="row">
+            <div class="col-lg-7 tablet-lg-top-30">
+              <img src="{{ url_for('static', filename='assets/images/Taskmania.png') }}" alt="" class="mb-30 rounded img-fluid" data-aos="fade-up" data-aos-delay="100">
+              <!-- <img src="{{ url_for('static', filename='assets/images/project-square3.jpg') }}" alt="" class="mb-30 rounded img-fluid" data-aos="fade-up" data-aos-delay="200">
+              <img src="{{ url_for('static', filename='assets/images/project-square6.jpg') }}" alt="" class="rounded img-fluid" data-aos="fade-up" data-aos-delay="300"> -->
+            </div>
+            <div class="col-lg-5">
+              <div class="promo-box project-info sticky-top top-30 p-4 bg-dark-80 rounded-4">
+                <h4 class="text-dark mb-4">Todo Application</h4>
+                <p class="mb-20 text-light-70">Productivity Tool & Open Source</p>
+                <p class="text-dark-80 mb-4">Developed a feature-rich todo application with cloud sync and team collaboration features. Open-sourced the core functionality with MIT license.</p>
+
+                <div class="spacer spacer-line-fw border-light-20 my-4"></div>
+
+                <ul class="list-unstyled text-light-80">
+                  <li class="d-flex justify-content-between mb-3">
+                    <span class="fw-bold">Contributors:</span>
+                    <span class="">15+</span>
+                  </li>
+                  <li class="d-flex justify-content-between mb-3">
+                    <span class="fw-bold">Stack:</span>
+                    <span class="">Vue.js, Firebase, Electron</span>
+                  </li>
+                  <li class="d-flex justify-content-between mb-3">
+                    <span class="fw-bold">Downloads:</span>
+                    <span class="">10,000+</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span class="fw-bold">License:</span>
+                    <span class="">MIT</span>
+                  </li>
+                </ul>
+
+                <div class="spacer spacer-line-fw border-light-20 my-4"></div>
+
+                <div class="text-center"> <a href="https://captain77.pythonanywhere.com" class="btn btn-primary px-4 py-3 rounded" target="_blank">
+                  <i class="fas fa-link mr-5"></i> </i><span>View Website</span>
+                </a></div>
+                 
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!-- Testimonials Section -->
@@ -394,8 +510,8 @@
       <div class="col-md-6 col-lg-3">
         <div class="card"  style="background-color: whitesmoke; border-radius: 20px;" data-aos="fade-up">
           <div class="card-body text-center">
-            <img class="mb-30 circle raised-sm" style="max-width:50%" src="{{ url_for('static' ,filename='assets/images/mini1.jpg') }}" alt="Alice M.">
-            <h6 class="card-title mb-5">Alice M.</h6>
+            <img class="mb-30 circle raised-sm" style="max-width:50%; width: 100px;height: 100px;" src="{{ url_for('static' ,filename='assets/images/cockpit.jpeg') }}" alt="Alice M.">
+            <h6 class="card-title mb-5">Skipper</h6>
             <p class="mb-0 fs-10 secondary-font fw-bold text-secondary-dark">Senior Software Engineer</p>
             <p class="card-text mt-15 mb-15">
               "Enock’s technical expertise and innovative approach have significantly elevated our development process."
@@ -414,8 +530,8 @@
       <div class="col-md-6 col-lg-3">
         <div class="card"  style="background-color: whitesmoke; border-radius: 20px;" data-aos="fade-up" data-aos-delay="100">
           <div class="card-body text-center">
-            <img class="mb-30 circle raised-sm" style="max-width:50%" src="{{ url_for('static' ,filename='assets/images/mini2.jpg') }}" alt="John K.">
-            <h6 class="card-title mb-5">John K.</h6>
+            <img class="mb-30 circle raised-sm" style="max-width:50%; width: 100px; height: 100px;" src="{{ url_for('static' ,filename='assets/images/bosco.jpeg') }}" alt="John K.">
+            <h6 class="card-title mb-5">box-description</h6>
             <p class="mb-0 fs-10 secondary-font fw-bold text-secondary-dark">Project Manager</p>
             <p class="card-text mt-15 mb-15">
               "Working with Enock has been a pleasure—his commitment to clean, efficient code is second to none."
@@ -434,8 +550,8 @@
       <div class="col-md-6 col-lg-3">
         <div class="card" style="background-color: whitesmoke; border-radius: 20px;" data-aos="fade-up" data-aos-delay="200">
           <div class="card-body text-center">
-            <img class="mb-30 circle raised-sm" style="max-width:50%" src="{{ url_for('static' ,filename='assets/images/mini3.jpg') }}" alt="Grace T.">
-            <h6 class="card-title mb-5">Grace T.</h6>
+            <img class="mb-30 circle raised-sm" style="max-width:50%;height: 100px;width: 100px;" src="{{ url_for('static' ,filename='assets/images/fwekas.jpeg') }}" alt="Grace T.">
+            <h6 class="card-title mb-5">Rugut Jerald</h6>
             <p class="mb-0 fs-10 secondary-font fw-bold text-secondary-dark">UI/UX Designer</p>
             <p class="card-text mt-15 mb-15">
               "Enock’s problem-solving skills and collaborative mindset make him an indispensable part of any team."
@@ -454,9 +570,9 @@
       <div class="col-md-6 col-lg-3">
         <div class="card"  style="background-color: whitesmoke; border-radius: 20px;" data-aos="fade-up" data-aos-delay="300">
           <div class="card-body text-center">
-            <img class="mb-30 circle raised-sm" style="max-width:50%" src="{{ url_for('static' ,filename='assets/images/mini4.jpg') }}" alt="Michael B.">
-            <h6 class="card-title mb-5">Michael B.</h6>
-            <p class="mb-0 fs-10 secondary-font fw-bold text-secondary-dark">Technical Lead</p>
+            <img class="mb-30 circle raised-sm" style="max-width:50%;height: 100px; width: 100px;" src="{{ url_for('static' ,filename='assets/images/Ben.jpeg') }}" alt="Ben Ronoh">
+            <h6 class="card-title mb-5">Benard Ronoh</h6>
+            <p class="mb-0 fs-10 secondary-font fw-bold text-secondary-dark">CEO @ Sigira Technologies</p>
             <p class="card-text mt-15 mb-15">
               "His ability to quickly learn new technologies and adapt to challenges has been a tremendous asset."
             </p>
