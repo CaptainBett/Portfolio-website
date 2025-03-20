@@ -32,7 +32,7 @@ app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASSWORD')
 def send_email(form_data):
     message = MIMEMultipart()
     message['From'] = app.config['MAIL_USERNAME']
-    message['To'] = 'captainbett77@gmail.com'
+    message['To'] = 'enockbett427@gmail.com'
     message['Subject'] = f"New Contact: {form_data['inputSubject3']}"
     
     body = f"""
