@@ -53,7 +53,7 @@ Message:
 We kindly request you to review the inquiry at your earliest convenience.
 
 Best regards,
-Your Website Team
+Captain
 """
 
     # HTML version for a premium, formatted look
@@ -104,7 +104,7 @@ Your Website Team
         <h2>New Contact Inquiry</h2>
       </div>
       <div class="details">
-        <p>Dear Captain Bet,</p>
+        <p>Dear Captain Bett,</p>
         <p>You have received a new inquiry from <strong>captaincodes.co.ke</strong>. Please review the details below:</p>
         <table>
           <tr>
@@ -126,7 +126,7 @@ Your Website Team
         <p>We kindly request you to review this inquiry at your earliest convenience.</p>
       </div>
       <div class="footer">
-        <p>Best regards,<br>Your Website Team</p>
+        <p>Best regards,<br>Captain</p>
       </div>
     </div>
   </body>
