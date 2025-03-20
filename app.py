@@ -30,28 +30,121 @@ app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
 app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASSWORD')
 
 def send_email(form_data):
-    message = MIMEMultipart()
+    # Create a MIMEMultipart message with alternative parts (plain and HTML)
+    message = MIMEMultipart("alternative")
     message['From'] = app.config['MAIL_USERNAME']
     message['To'] = 'captainbett77@gmail.com'
-    message['Subject'] = f"New Contact: {form_data['inputSubject3']}"
-    
-    body = f"""
-    New contact form submission from captaincodes.co.ke:
-    
-    Name: {form_data['inputName3']}
-    Email: {form_data['inputEmail3']}
-    Category: {form_data['inputSelect3']}
-    
-    Message:
-    {form_data['inputMessage3']}
-    """
-    
-    message.attach(MIMEText(body, 'plain'))
-    
+    message['Subject'] = f"New Contact Inquiry: {form_data['inputSubject3']}"
+
+    # Plain text version
+    text = f"""\
+Dear Captain Bett,
+
+You have received a new contact inquiry from the website captaincodes.co.ke.
+
+Details of the submission are as follows:
+
+Name: {form_data['inputName3']}
+Email: {form_data['inputEmail3']}
+
+Message:
+{form_data['inputMessage3']}
+
+We kindly request you to review the inquiry at your earliest convenience.
+
+Best regards,
+Your Website Team
+"""
+
+    # HTML version for a premium, formatted look
+    html = f"""\
+<html>
+  <head>
+    <style>
+      body {{
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }}
+      .content {{
+        max-width: 600px;
+        margin: auto;
+      }}
+      .header {{
+        background-color: #f8f8f8;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }}
+      .details {{
+        padding: 20px;
+      }}
+      .details table {{
+        width: 100%;
+        border-collapse: collapse;
+      }}
+      .details td {{
+        padding: 8px;
+        vertical-align: top;
+      }}
+      .details tr:nth-child(even) {{
+        background-color: #f2f2f2;
+      }}
+      .footer {{
+        padding: 10px;
+        text-align: center;
+        font-size: 0.9em;
+        color: #777;
+      }}
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <h2>New Contact Inquiry</h2>
+      </div>
+      <div class="details">
+        <p>Dear Captain Bet,</p>
+        <p>You have received a new inquiry from <strong>captaincodes.co.ke</strong>. Please review the details below:</p>
+        <table>
+          <tr>
+            <td><strong>Name:</strong></td>
+            <td>{form_data['inputName3']}</td>
+          </tr>
+          <tr>
+            <td><strong>Email:</strong></td>
+            <td>{form_data['inputEmail3']}</td>
+          </tr>
+          <tr>
+            <td><strong>Category:</strong></td>
+            <td>{form_data['inputSelect3']}</td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>Message:</strong><br>{form_data['inputMessage3']}</td>
+          </tr>
+        </table>
+        <p>We kindly request you to review this inquiry at your earliest convenience.</p>
+      </div>
+      <div class="footer">
+        <p>Best regards,<br>Your Website Team</p>
+      </div>
+    </div>
+  </body>
+</html>
+"""
+
+    # Attach both parts to the message
+    part1 = MIMEText(text, 'plain')
+    part2 = MIMEText(html, 'html')
+    message.attach(part1)
+    message.attach(part2)
+
+    # Send the email via SMTP with TLS encryption
     with smtplib.SMTP(app.config['MAIL_SERVER'], app.config['MAIL_PORT']) as server:
         server.starttls()
         server.login(app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'])
         server.send_message(message)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
