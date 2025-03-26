@@ -116,10 +116,6 @@ Captain
             <td>{form_data['inputEmail3']}</td>
           </tr>
           <tr>
-            <td><strong>Category:</strong></td>
-            <td>{form_data['inputSelect3']}</td>
-          </tr>
-          <tr>
             <td colspan="2"><strong>Message:</strong><br>{form_data['inputMessage3']}</td>
           </tr>
         </table>

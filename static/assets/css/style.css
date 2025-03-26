@@ -2,7 +2,7 @@
 
     /* Custom CSS */
     .gradient-text {
-      background: linear-gradient(45deg, #4CAF50, #2196F3);
+      background: #2196F3;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
